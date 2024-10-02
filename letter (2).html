@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body style="background-color: skyblue;">
+    <p>Input Text:</p>
+    <input type="text" id="textToSearch"> <br><br>
+
+    <p>Input letter:</p>
+    <input type="text" id="letterToFind"><br><br>
+
+    <button onclick="findPositions()">Find Data</button>
+    <p>Positions of the Letter in the Text: </p>
+    <p id="textResult"></p>
+
+    <p>Position of the Letter in the Alphabet: </p>
+    <p id="alphabetResult"></p>
+</body>
+</html>
+
+<script>
+    
+function findPositions() {
+    let text = document.getElementById("textToSearch").value;
+    let data = document.getElementById("letterToFind").value;
+    let alphabetPosition = "";
+
+    let results = [];
+    let i = 1;
+
+    for (let x = 0; x < text.length; x++) {
+        if (text[x].toLowerCase() === data.toLowerCase()) {
+            results.push(i);
+        }
+        if (text[x] !== " ") {
+            i++;
+        }
+    }
+    for (let x = 0; x < alphabetPosition.length; x++) {
+        if (text[x].toLowerCase() === data.toLowerCase()) {
+            results.push(i);
+        }
+        if (text[x] !== " ") {
+            i++;
+        }
+    }
+
+var alphaLetters = data.toLowerCase();
+
+if (alphaLetters === 'a') {
+    alphabetPosition = "1";
+} 
+else if (alphaLetters === 'b') {
+    alphabetPosition = "2";
+} 
+else if (alphaLetters === 'c') {
+    alphabetPosition = "3";
+} 
+else if (alphaLetters === 'd') {
+    alphabetPosition = "4";
+} 
+else if (alphaLetters === 'e') {
+    alphabetPosition = "5";
+} 
+else if (alphaLetters === 'f') {
+    alphabetPosition = "6";
+} 
+else if (alphaLetters === 'g') {
+    alphabetPosition = "7";
+} 
+else if (alphaLetters === 'h') {
+    alphabetPosition = "8";
+} 
+else if (alphaLetters === 'i') {
+    alphabetPosition = "9";
+} 
+else if (alphaLetters === 'j') {
+    alphabetPosition = "10";
+} 
+else if (alphaLetters === 'k') {
+    alphabetPosition = "11";
+} 
+else if (alphaLetters === 'l') {
+    alphabetPosition = "12";
+} 
+else if (alphaLetters === 'm') {
+    alphabetPosition = "13";
+} 
+else if (alphaLetters === 'n') {
+    alphabetPosition = "14";
+} 
+else if (alphaLetters === 'o') {
+    alphabetPosition = "15";
+} 
+else if (alphaLetters === 'p') {
+    alphabetPosition = "16";
+} 
+else if (alphaLetters === 'q') {
+    alphabetPosition = "17";
+} 
+else if (alphaLetters === 'r') {
+    alphabetPosition = "18";
+} 
+else if (alphaLetters === 's') {
+    alphabetPosition = "19";
+} 
+else if (alphaLetters === 't') {
+    alphabetPosition = "20";
+} 
+else if (alphaLetters === 'u') {
+    alphabetPosition = "21";
+} 
+else if (alphaLetters === 'v') {
+    alphabetPosition = "22";
+} 
+else if (alphaLetters === 'w') {
+    alphabetPosition = "23";
+} 
+else if (alphaLetters === 'x') {
+    alphabetPosition = "24";
+} 
+else if (alphaLetters === 'y') {
+    alphabetPosition = "25";
+} 
+else if (alphaLetters === 'z') {
+    alphabetPosition = "26";
+} 
+else {
+    alphabetPosition = "Invalid Data Input";
+}
+
+
+    document.getElementById("textResult").innerHTML = results ;
+    document.getElementById("alphabetResult").innerHTML = alphabetPosition;
+}
+</script>
