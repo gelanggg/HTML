@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Shopping Cart</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div style="display: inline-block; margin-right: 50px;">
+        <h2 style="margin-top: 5px;">Items for Sale: </h2>
+        <pre style="font-size:20px; font-family:  Verdana, Geneva, Tahoma, sans-serif;">
+            ITEM            PRICE   
+            Pen          ₱15     <button onclick="addItem('Pen')">Add Item</button>
+            Noteboook    ₱20     <button onclick="addItem('Noteboook')">Add Item</button>
+            Pad Paper    ₱35     <button onclick="addItem('Pad Paper')">Add Item</button>
+            Pencil       ₱12     <button onclick="addItem('Pencil')">Add Item</button>
+        </pre>
+    </div>
+
+    <div style="display: inline-block; vertical-align: top; margin-left: 35px; margin-right: 35px;">
+        <fieldset>
+            <legend>Shopping Cart Lists:</legend>
+            <pre id="shoppingList" style="font-size:20px; font-family:  Verdana, Geneva, Tahoma, sans-serif;">
+                ITEM          PRICE
+            </pre>
+            <button onclick="findDiscount()">Total</button>
+        </fieldset>
+    </div>
+
+    <div style="display: inline-block; vertical-align: top;">
+        <fieldset>
+            <legend>Today's Discount:</legend>
+            <pre style="margin-bottom: 4px; font-family: Verdana, Geneva, Tahoma, sans-serif; ">
+                1.  Buy More Than 5 Items, 
+                You get 10% off of the total purchased!
+
+                2.  If you have more than or equal to 10 items bought, 
+                you get 15% off from your total cost purchase!
+            </pre>
+        </fieldset>
+    </div>
+      <p id="totalPrice" style="font-size:20px; font-family:  Verdana, Geneva, Tahoma, sans-serif;" ></p>
+    
+</body>
+</html>
+<script>
+    let items = [];
+
+        function addItem(item) {
+            if (item == 'Pen') {
+                items.push({ product: "Pen", price: 15 });
+            } else if (item == 'Noteboook') {
+                items.push({ product: "Noteboook", price: 20 });
+            } else if (item == 'Pad Paper') {
+                items.push({ product: "Pad Paper", price: 35 });
+            } else if (item == 'Pencil') {
+                items.push({ product: "Pencil", price: 12 });
+            }
+            // Update the shopping list
+            updateShoppingList();
+        }
+
+        function updateShoppingList() {
+            let listContent = "ITEM          PRICE\n";
+            for (let item of items) {
+                listContent += item.product + '    ₱' + item.price + '\n';
+            }
+            document.getElementById("shoppingList").textContent = listContent;
+        }
+
+        function totalCost() {
+            let total = 0;
+            for (item of items) {
+                total += item.price;
+            }
+            return total; // Make sure to return the total cost
+        }
+
+        function findDiscount() {
+            let total = totalCost();
+            let noOfItems = 0;
+            for (let item of items) {
+                noOfItems++;
+                
+            }
+            if (noOfItems >= 5 && 10) {
+                total = total - (total * 0.10);
+            }
+            else if (noOfItems >= 10) {
+                total = total - (total * 0.15);
+            }
+        
+            document.getElementById('totalPrice').innerHTML = 'Total Price: ₱' + total;
+        
+        }
+</script>
